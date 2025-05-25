@@ -34,8 +34,13 @@ $page_title = htmlspecialchars($product['name']) . " - n8n Store";
                     <p class="card-date"><?php echo htmlspecialchars($product['fecha_actualizacion'] ?? 'Sin descripción'); ?></p>
                 </div>
                 <p class="fw-bold">Precio: <span class="text-price"><?php echo number_format($product['price'], 2); ?>€</span></p>
-                <a href="checkout.php?id=<?php echo $product['id']; ?>" class="btn btn-success"><?php echo htmlspecialchars($product['estado']); ?></a>
-            </div>
+                <?php if (!empty($product['id'])): ?>
+                    <a href="checkout.php?id=<?php echo htmlspecialchars($product['id']); ?>" class="btn btn-success">
+                <?php echo htmlspecialchars($product['estado']); ?>
+    </a>
+<?php else: ?>
+    <button class="btn btn-secondary" disabled>Producto no disponible</button>
+<?php endif; ?>            </div>
             <?php if (!empty($product['img_n8n'])): ?>
                 <img class="img-n8n-product img-fluid" src="<?php echo htmlspecialchars($product['img_n8n']); ?>" alt="Captura n8n" />
             <?php endif; ?>

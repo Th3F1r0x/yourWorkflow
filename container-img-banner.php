@@ -1,3 +1,6 @@
+<?php
+require 'php/config.php';
+?>
 <div class="publish-container">
     <div class="publish-container-demo">Pide tu Demo</div>
     <span class="publish-container-try">Pruébalo gratis</span>
